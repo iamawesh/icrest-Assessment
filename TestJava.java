@@ -2,16 +2,14 @@ package com.casa.eligibility.check.Controller;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 public class TestJava {
     // E.g. Input: Automation, Output: noitamotuA
-    // Please don't use method such as s.reverse()
+    // don't use method such as s.reverse()
     public static String reverseStringWithoutUsingStringMethod(String s) {
         char[] charArray = s.toCharArray();
         int left = 0;
@@ -96,13 +94,8 @@ public class TestJava {
         for (int i = 0; i < input.length; i++) {
             int x = input[i];
             String equation = equations[i].replace("x", String.valueOf(x));
-
-            try {
                 Object evalResult = engine.eval(equation);
                 result[i] = Integer.parseInt(evalResult.toString()); // Convert result to Integer
-            } catch (Exception e) {
-                result[i] = null; //  Ensure null does not cause NPE in return type
-            }
         }
     } catch (Exception e) {
         e.printStackTrace();
